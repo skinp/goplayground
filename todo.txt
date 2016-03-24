@@ -1,4 +1,3 @@
 LinkedLists
 Graphs
 Sorts
-Sorting structures
