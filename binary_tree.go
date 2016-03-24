@@ -1,4 +1,4 @@
-package binarytree
+package myplayground
 
 // Node represents a Node in the tree. It contains generic data, a left node
 // and a right node.
