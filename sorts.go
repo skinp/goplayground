@@ -62,3 +62,32 @@ func SortPersonMapByValue(pm map[string]Person) []PersonPair {
 	sort.Sort(PersonPairSorter(pp))
 	return pp
 }
+
+// InsertionSort sorts a list of integers using the insertion sort algorithm.
+func InsertionSort(toSort *[]int) {
+	for i := 1; i < len(*toSort); i++ {
+		pos := i
+		current := (*toSort)[pos]
+
+		for pos > 0 && (*toSort)[pos-1] > current {
+			(*toSort)[pos] = (*toSort)[pos-1]
+			pos--
+		}
+		(*toSort)[pos] = current
+	}
+}
+
+// SelectionSort sorts a list of integers using the selection sort algorithm.
+func SelectionSort(toSort *[]int) {
+	for i := 0; i < len(*toSort); i++ {
+		min := i
+		for j := i + 1; j < len(*toSort); j++ {
+			if (*toSort)[j] < (*toSort)[min] {
+				min = j
+			}
+		}
+		if min != i {
+			i, min = min, i
+		}
+	}
+}

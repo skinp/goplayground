@@ -86,3 +86,45 @@ func TestSortMapByValue(t *testing.T) {
 		t.Errorf("person pairs are not in their right order")
 	}
 }
+
+func isSorted(l []int) bool {
+	if len(l) == 0 {
+		return true
+	}
+	previous := l[0]
+	for i := 0; i < len(l); i++ {
+		if previous > l[i] {
+			return false
+		}
+	}
+	return true
+}
+
+var sortTestCases = [][]int{
+	[]int{},
+	[]int{1},
+	[]int{1, 2, 3, 4, 5},
+	[]int{10, 3, 6, 100, -1, -10, 0, 5},
+}
+
+func TestInsertionSort(t *testing.T) {
+	t.Parallel()
+
+	for _, tc := range sortTestCases {
+		InsertionSort(&tc)
+		if !isSorted(tc) {
+			t.Errorf("list %#v is not sorted", tc)
+		}
+	}
+}
+
+func TestSelectionSort(t *testing.T) {
+	t.Parallel()
+
+	for _, tc := range sortTestCases {
+		SelectionSort(&tc)
+		if !isSorted(tc) {
+			t.Errorf("list %#v is not sorted", tc)
+		}
+	}
+}
