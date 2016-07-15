@@ -100,20 +100,20 @@ func isSorted(l []int) bool {
 	return true
 }
 
-var sortTestCases = [][]int{
-	[]int{},
-	[]int{1},
-	[]int{1, 2, 3, 4, 5},
-	[]int{10, 3, 6, 100, -1, -10, 0, 5},
-}
-
 func TestInsertionSort(t *testing.T) {
 	t.Parallel()
 
-	for _, tc := range sortTestCases {
+	var testCases = [][]int{
+		[]int{},
+		[]int{1},
+		[]int{1, 2, 3, 4, 5},
+		[]int{10, 3, 6, 100, -1, -10, 0, 5},
+	}
+
+	for _, tc := range testCases {
 		InsertionSort(&tc)
 		if !isSorted(tc) {
-			t.Errorf("list %#v is not sorted", tc)
+			t.Errorf("list %#v is not sorted (insertion)", tc)
 		}
 	}
 }
@@ -121,10 +121,17 @@ func TestInsertionSort(t *testing.T) {
 func TestSelectionSort(t *testing.T) {
 	t.Parallel()
 
-	for _, tc := range sortTestCases {
+	var testCases = [][]int{
+		[]int{},
+		[]int{1},
+		[]int{1, 2, 3, 4, 5},
+		[]int{10, 3, 6, 100, -1, -10, 0, 5},
+	}
+
+	for _, tc := range testCases {
 		SelectionSort(&tc)
 		if !isSorted(tc) {
-			t.Errorf("list %#v is not sorted", tc)
+			t.Errorf("list %#v is not sorted (selection)", tc)
 		}
 	}
 }

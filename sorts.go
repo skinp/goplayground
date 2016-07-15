@@ -87,7 +87,7 @@ func SelectionSort(toSort *[]int) {
 			}
 		}
 		if min != i {
-			i, min = min, i
+			(*toSort)[i], (*toSort)[min] = (*toSort)[min], (*toSort)[i]
 		}
 	}
 }
