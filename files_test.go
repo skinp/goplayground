@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-const singleLineFile = "test_data/single_line.txt"
-const multiLinesFile = "test_data/multi_lines.txt"
+const singleLineFile = "fixtures/single_line.txt"
+const multiLinesFile = "fixtures/multi_lines.txt"
 
 func TestScannerReadFileLines(t *testing.T) {
 	t.Parallel()
